@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-UltraLight</string>
+            <string>HelveticaNeue-UltraLightItalic</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllPageCell" id="KGk-i7-Jjw" customClass="CustomAllPageCell" customModule="BitMan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STj-UN-bIq">
+                        <rect key="frame" x="15" y="11" width="56" height="24"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Dyi-Qb-yME">
+                        <rect key="frame" x="143" y="11" width="36" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RANK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY7-H3-MmH">
+                        <rect key="frame" x="58" y="40" width="46" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8q-YV-NBL">
+                        <rect key="frame" x="129" y="11" width="11" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYC-dF-EF8">
+                        <rect key="frame" x="128" y="43" width="27" height="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDH-6f-XVo">
+                        <rect key="frame" x="15" y="41" width="35" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PriceBTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swX-mL-rdV">
+                        <rect key="frame" x="158" y="41" width="70" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q98-l8-0Th">
+                        <rect key="frame" x="234" y="11" width="51" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="swX-mL-rdV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="1XE-NV-zKi"/>
+                    <constraint firstAttribute="trailing" secondItem="DYC-dF-EF8" secondAttribute="trailing" constant="165" id="8mm-eb-DSs"/>
+                    <constraint firstAttribute="trailing" secondItem="M8q-YV-NBL" secondAttribute="trailing" constant="180" id="9Fn-lT-wyX"/>
+                    <constraint firstItem="Q98-l8-0Th" firstAttribute="leading" secondItem="M8q-YV-NBL" secondAttribute="trailing" constant="94" id="FYY-AR-Eub"/>
+                    <constraint firstItem="M8q-YV-NBL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="IeT-Xe-2AJ"/>
+                    <constraint firstItem="Dyi-Qb-yME" firstAttribute="leading" secondItem="M8q-YV-NBL" secondAttribute="trailing" constant="3" id="TH4-0J-4ES"/>
+                    <constraint firstItem="swX-mL-rdV" firstAttribute="leading" secondItem="DYC-dF-EF8" secondAttribute="trailing" constant="3" id="Vpg-Rc-Z1X"/>
+                    <constraint firstItem="lDH-6f-XVo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="YDG-8T-6FL"/>
+                    <constraint firstItem="Dyi-Qb-yME" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="ZHf-HY-O95"/>
+                    <constraint firstItem="Q98-l8-0Th" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="cC3-GF-zwm"/>
+                    <constraint firstItem="STj-UN-bIq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="cSZ-Z3-HKV"/>
+                    <constraint firstItem="IY7-H3-MmH" firstAttribute="leading" secondItem="lDH-6f-XVo" secondAttribute="trailing" constant="8" id="hi7-5U-CUd"/>
+                    <constraint firstItem="lDH-6f-XVo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="kGH-BO-Utk"/>
+                    <constraint firstItem="DYC-dF-EF8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="43" id="kQ2-1n-eA3"/>
+                    <constraint firstItem="IY7-H3-MmH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="kVM-fX-q1B"/>
+                    <constraint firstItem="STj-UN-bIq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="uw8-Ye-YGD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="name" destination="STj-UN-bIq" id="BGl-xR-7aG"/>
+                <outlet property="percentLabel" destination="Q98-l8-0Th" id="9uK-IJ-qQF"/>
+                <outlet property="priceBTC" destination="swX-mL-rdV" id="kbB-2X-wSH"/>
+                <outlet property="priceUS" destination="Dyi-Qb-yME" id="7ti-aX-N3h"/>
+                <outlet property="rank" destination="IY7-H3-MmH" id="YGQ-WJ-HBn"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>976544728210-vvfvenbnerv1caiq552m8f4hpblrg4j8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.976544728210-vvfvenbnerv1caiq552m8f4hpblrg4j8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDM11h-REyKVg3yLPKuAz1WXJuwYaxJ6TA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>976544728210</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>me.varunyadav.BitMan</string>
+	<key>PROJECT_ID</key>
+	<string>bitman-29b15</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bitman-29b15.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:976544728210:ios:0446824af999f3ed</string>
+	<key>DATABASE_URL</key>
+	<string>https://bitman-29b15.firebaseio.com</string>
+</dict>
+</plist>
