@@ -1,5 +1,5 @@
 # CryptoCurrencyTracker
-App to track live price of Crypto Currencies. 
+App to track live price of Crypto Currencies with custom user profiles. This app uses coinmarketcap API. 
 
 ##### Login page
 
