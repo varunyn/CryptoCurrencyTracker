@@ -87,7 +87,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     func displayAlert(title:String, message:String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func SignUpButtonTapped(_ sender: Any) {
@@ -134,7 +134,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
        
         SignUpButton.layer.cornerRadius = 15
         LoginButton.layer.borderWidth = 1.5
-        LoginButton.layer.borderColor = UIColor.white.cgColor
+        LoginButton.layer.borderColor = UIColor.orange.cgColor
         
         GoogleLogin.layer.cornerRadius = 15
         GoogleLogin.layer.borderWidth = 1.5
@@ -142,8 +142,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
         
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().signIn()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

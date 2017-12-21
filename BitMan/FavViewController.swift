@@ -93,8 +93,6 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
 
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-       
-        
         guard let userkey = Auth.auth().currentUser?.uid else {return}
         
         let CurrencyName = self.loadedData[indexPath.row]
@@ -130,6 +128,15 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let StoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let SecondVC = StoryBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+   
+        SecondVC.NewData = [NewData[indexPath.row]]
+       
+        self.navigationController?.pushViewController(SecondVC, animated: true)
+    }
+    
 /*  ---------------------- END of TABLEVIEW  ----------------------  */
     
     
@@ -158,16 +165,23 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
             
                 let USD = String(describing: json[j]["price_usd"])
             
-            
                 let BTC = String(describing: json[j]["price_btc"])
             
                 let percent = String(describing: json[j]["percent_change_24h"])
             
+                let percent1h = String(describing: json[j]["percent_change_1h"])
+            
+                let percent7d = String(describing: json[j]["percent_change_7d"])
+            
+                let Vol = String(describing: json[j]["24h_volume_usd"])
+            
                 let ID = String(describing: json[i]["id"])
+            
                 let c = "%"
+            
                 let finalper = "\(percent)" + c
         
-            self.NewData.append(FetchedData(name: title,rank: rank, price_usd:USD, price_btc:BTC,percentage:finalper, coinId:ID))
+            self.NewData.append(FetchedData(name: title,rank: rank, price_usd:USD, price_btc:BTC,percentage:finalper, coinId:ID, percentage1h: percent1h, percentage7d: percent7d, vol24h: Vol))
             
         } catch let error {
             print(error)
@@ -226,13 +240,19 @@ class FetchedData{
     var price_btc:String
     var percentage:String
     var coinId:String
+    var percentage1h:String
+    var percentage7d:String
+    var vol24h:String
     
-    init(name: String,rank:String,price_usd:String,price_btc:String,percentage:String,coinId:String){
+    init(name: String,rank:String,price_usd:String,price_btc:String,percentage:String,coinId:String,percentage1h:String,percentage7d:String,vol24h:String){
         self.name = name
         self.rank = rank
         self.price_btc = price_btc
         self.price_usd = price_usd
         self.percentage = percentage
         self.coinId = coinId
+        self.percentage1h = percentage1h
+        self.percentage7d = percentage7d
+        self.vol24h = vol24h
     }
 }
