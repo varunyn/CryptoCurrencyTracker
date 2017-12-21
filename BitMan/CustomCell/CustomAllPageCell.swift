@@ -23,6 +23,7 @@ class CustomAllPageCell: UITableViewCell {
     
     @IBOutlet weak var priceBTC: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

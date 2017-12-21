@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
   
     
     @IBAction func USDTextField(_ sender: Any) {
-        
+
 
 //        var mul = Int(USDtextField1.text!)
 //        print(mul)
@@ -63,12 +63,12 @@ class DetailViewController: UIViewController {
 //        print(a)
 //        var b = a! * mul!
 //        print(b)
-//        
+//
 //        CurrencyTextfield.text = String(b)
 
     }
-    
-    
+//
+//
     
     @IBOutlet weak var USDtextField1: UITextField!
     
@@ -80,6 +80,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         forUSD.text = NewData[0].price_usd
          forBTC.text = NewData[0].price_btc
          forName.text = NewData[0].name
@@ -89,9 +90,11 @@ class DetailViewController: UIViewController {
          for24hVol.text = NewData[0].vol24h
         
         
+        USDtextField1.text = NewData[0].price_usd
+        CurrencyTextfield.text = "1"
         
-        USDtextField1.text = "1"
-        CurrencyTextfield.text = NewData[0].price_usd
+        
+        
         
         let change1h = NewData[0].percentage1h
          let change24h = NewData[0].percentage
@@ -118,6 +121,9 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func convertValue (usd: Double, coin: Double) {
+        
+    }
 
     /*
     // MARK: - Navigation

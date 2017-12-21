@@ -13,7 +13,7 @@ import NotificationBannerSwift
 
 
 
-class AllPageController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
+class AllPageController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, UISearchControllerDelegate {
    
     private var refresher: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
@@ -58,28 +58,22 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-//        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
-        
-//        search.searchResultsUpdater = self as? UISearchResultsUpdating
        
         self.tabBarController?.delegate = self
+        search.delegate = self
+
         
         // SearchBar
         
-        self.navigationItem.searchController = search
-        navigationItem.hidesSearchBarWhenScrolling = true
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-  
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(showSearch))
+
         // TABLEVIEW
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CustomAllPageCell", bundle: nil),forCellReuseIdentifier: "AllPageCell")
         
         getValue()
         
+        tableView.setEditing(false, animated: false)
         
 //        let longpress = UILongPressGestureRecognizer(target: self, action: Selector("longPressGestureRecognized:"))
 //        tableView.addGestureRecognizer(longpress)
@@ -95,6 +89,23 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         self.hideKeyboardWhenTappedAround()
        
     }
+    
+    
+    @objc func showSearch () {
+        self.navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = true
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.isActive = true
+
+    }
+    
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        self.navigationItem.searchController = nil
+
+    }
+    
 /*  ---------------------- End of ViewDidLoad  ----------------------  */
     
     override func didReceiveMemoryWarning() {
@@ -146,8 +157,7 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         let change = cell.percentLabel.text
         
         cell.percentLabel.textColor = change?.range(of: "-") != nil ? .red : .green
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 120
+
         return cell
     }
 
@@ -209,31 +219,25 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
                                 
                         if error != nil {
                             print("Error")
-                                        }
+                            }
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
                         
-                                    })
+                        })
                          banner1.show()
-                        }
-                    
+                    }
                 })
-            
-    })
+            })
        
-       
-        
         closeAction.backgroundColor = .orange
         closeAction.image = UIImage(named: "fav1")
         
-        
         return UISwipeActionsConfiguration(actions: [closeAction])
-    
-        }
-    
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        <#code#>
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.none
+    }
+
     
     // SWIPE LEFT FUNCTION
     
@@ -287,9 +291,6 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
 //        return nil
 //
 //    }
-    
-    
-    
     
 /*  ---------------------- End of TableView ----------------------  */
 

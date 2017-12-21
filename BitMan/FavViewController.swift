@@ -25,8 +25,7 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+     
         FavTableView.register(UINib(nibName: "CustomAllPageCell", bundle: nil),forCellReuseIdentifier: "AllPageCell")
         
         getFromFirebase()
@@ -36,12 +35,6 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         refresher.addTarget(self, action: #selector(AllPageController.populate), for: UIControlEvents.valueChanged)
         FavTableView.addSubview(refresher)
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.25, execute: {
-//            self.getValue()
-//        })
-
-//         NotificationCenter.default.addObserver(self, selector: #selector(self.initializeLoadedData), name: NSNotification.Name(rawValue: "load1"), object: nil)
-//
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadFromMain), name: NSNotification.Name(rawValue: "load"), object: nil)
         
     }
