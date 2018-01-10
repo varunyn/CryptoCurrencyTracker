@@ -13,6 +13,7 @@
 		0109CC0A1FD6FEB2001524B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC091FD6FEB2001524B9 /* Assets.xcassets */; };
 		0109CC0D1FD6FEB2001524B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC0B1FD6FEB2001524B9 /* LaunchScreen.storyboard */; };
 		0109CC151FD7009B001524B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC141FD7009B001524B9 /* GoogleService-Info.plist */; };
+		010F2E841FEC8A4200773575 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F2E831FEC8A4200773575 /* CustomTabBarController.swift */; };
 		013646561FD838A8005652C7 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013646551FD838A8005652C7 /* FavViewController.swift */; };
 		018C67671FE03D8400A047F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C67661FE03D8400A047F3 /* DetailViewController.swift */; };
 		01BE40281FD7554F00174BA2 /* AllPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE40271FD7554F00174BA2 /* AllPageController.swift */; };
@@ -31,6 +32,7 @@
 		0109CC0C1FD6FEB2001524B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0109CC0E1FD6FEB2001524B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0109CC141FD7009B001524B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		010F2E831FEC8A4200773575 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		013646551FD838A8005652C7 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		018C67661FE03D8400A047F3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		01BE40261FD7481900174BA2 /* Aventura-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aventura-Bold.otf"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				018C67661FE03D8400A047F3 /* DetailViewController.swift */,
 				01D07FD41FDB072000373190 /* SettingsViewController.swift */,
 				013646551FD838A8005652C7 /* FavViewController.swift */,
+				010F2E831FEC8A4200773575 /* CustomTabBarController.swift */,
 				01BE402D1FD75C4500174BA2 /* CustomCell */,
 				0109CC091FD6FEB2001524B9 /* Assets.xcassets */,
 				0109CC0B1FD6FEB2001524B9 /* LaunchScreen.storyboard */,
@@ -246,6 +249,7 @@
 			files = (
 				0109CC051FD6FEB2001524B9 /* ViewController.swift in Sources */,
 				0109CC031FD6FEB2001524B9 /* AppDelegate.swift in Sources */,
+				010F2E841FEC8A4200773575 /* CustomTabBarController.swift in Sources */,
 				01BE40281FD7554F00174BA2 /* AllPageController.swift in Sources */,
 				013646561FD838A8005652C7 /* FavViewController.swift in Sources */,
 				01BE402B1FD75C3D00174BA2 /* CustomAllPageCell.swift in Sources */,

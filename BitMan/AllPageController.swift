@@ -108,6 +108,11 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
     
 /*  ---------------------- End of ViewDidLoad  ----------------------  */
     
+    override func viewWillAppear(_ animated: Bool) {
+       (self.tabBarController as! CustomTabBarController).model = NewData
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

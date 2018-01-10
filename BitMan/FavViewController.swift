@@ -17,6 +17,8 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
    
     var NewData = [FetchedData]()
     
+    var NewData1 = [FetchedData]()
+    
     var refresher: UIRefreshControl!
     @IBOutlet weak var FavTableView: UITableView!
     
@@ -51,6 +53,23 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         FavTableView.setContentOffset(CGPoint.zero, animated: true)
         
     }
+//    override func viewWillAppear(_ animated: Bool) {
+//      NewData1 = (self.tabBarController as! CustomTabBarController).model
+//
+//    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//        for j in 0..<NewData1.count{
+//            for i in loadedData{
+//                if i == NewData1[j].name {
+//                    NewData.append(NewData1[j])
+//                }
+//            }
+////            print(NewData1[j].name)
+//        }
+//
+//    }
     
 /*  ---------------------- Start of TableView  ----------------------  */
     
@@ -141,41 +160,41 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
 
         print("URL")
         for i in loadedData{
-        
+
         let finalUrl = "https://api.coinmarketcap.com/v1/ticker/" + "\(i)" + "/"
-            
+
         let url = URL.init(string: finalUrl)
-        
+
         do{
             let response = try Data.init(contentsOf: url!)
-            
+
             let json = JSON(data: response)
             let j = 0
-                
+
                 let title = String(describing: json[j]["name"])
-            
+
                 let rank = String(describing: json[j]["rank"])
-            
+
                 let USD = String(describing: json[j]["price_usd"])
-            
+
                 let BTC = String(describing: json[j]["price_btc"])
-            
+
                 let percent = String(describing: json[j]["percent_change_24h"])
-            
+
                 let percent1h = String(describing: json[j]["percent_change_1h"])
-            
+
                 let percent7d = String(describing: json[j]["percent_change_7d"])
-            
+
                 let Vol = String(describing: json[j]["24h_volume_usd"])
-            
+
                 let ID = String(describing: json[i]["id"])
-            
+
                 let c = "%"
-            
+
                 let finalper = "\(percent)" + c
-        
+
             self.NewData.append(FetchedData(name: title,rank: rank, price_usd:USD, price_btc:BTC,percentage:finalper, coinId:ID, percentage1h: percent1h, percentage7d: percent7d, vol24h: Vol))
-            
+
         } catch let error {
             print(error)
         }
@@ -207,6 +226,7 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
                       print(error.localizedDescription)
                    })
   
+//        getValue()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.00, execute: { self.getValue()  })
         
     }
@@ -226,26 +246,4 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
     }
 }
 
-class FetchedData{
-    var name: String
-    var rank:String
-    var price_usd:String
-    var price_btc:String
-    var percentage:String
-    var coinId:String
-    var percentage1h:String
-    var percentage7d:String
-    var vol24h:String
-    
-    init(name: String,rank:String,price_usd:String,price_btc:String,percentage:String,coinId:String,percentage1h:String,percentage7d:String,vol24h:String){
-        self.name = name
-        self.rank = rank
-        self.price_btc = price_btc
-        self.price_usd = price_usd
-        self.percentage = percentage
-        self.coinId = coinId
-        self.percentage1h = percentage1h
-        self.percentage7d = percentage7d
-        self.vol24h = vol24h
-    }
-}
+

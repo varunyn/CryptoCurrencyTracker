@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var forName: UILabel!
     
-     var NewData = [FetchedData]()
+    var NewData = [FetchedData]()
     var c = ""
     @IBOutlet weak var forUSD: UILabel!
     
@@ -51,62 +51,28 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var for7D: UILabel!
     
     @IBOutlet weak var for24hVol: UILabel!
-    
-  
-    
-    @IBAction func USDTextField(_ sender: Any) {
 
-
-//        var mul = Int(USDtextField1.text!)
-//        print(mul)
-//        var a = Int(c)
-//        print(a)
-//        var b = a! * mul!
-//        print(b)
-//
-//        CurrencyTextfield.text = String(b)
-
-    }
-//
-//
-    
-    @IBOutlet weak var USDtextField1: UITextField!
-    
-    
-    @IBOutlet weak var CurrencyTextfield: UITextField!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         forUSD.text = NewData[0].price_usd
-         forBTC.text = NewData[0].price_btc
-         forName.text = NewData[0].name
+        forBTC.text = NewData[0].price_btc
+        forName.text = NewData[0].name
         for1H.text = NewData[0].percentage1h + "%"
-         for24H.text = NewData[0].percentage
-         for7D.text = NewData[0].percentage7d + "%"
-         for24hVol.text = NewData[0].vol24h
-        
-        
-        USDtextField1.text = NewData[0].price_usd
-        CurrencyTextfield.text = "1"
-        
-        
-        
+        for24H.text = NewData[0].percentage
+        for7D.text = NewData[0].percentage7d + "%"
+        for24hVol.text = NewData[0].vol24h
         
         let change1h = NewData[0].percentage1h
-         let change24h = NewData[0].percentage
-         let change7d = NewData[0].percentage7d
+        let change24h = NewData[0].percentage
+        let change7d = NewData[0].percentage7d
         
         for1H.textColor = change1h.range(of: "-") != nil ? .red : .green
-         for24H.textColor = change24h.range(of: "-") != nil ? .red : .green
-         for7D.textColor = change7d.range(of: "-") != nil ? .red : .green
+        for24H.textColor = change24h.range(of: "-") != nil ? .red : .green
+        for7D.textColor = change7d.range(of: "-") != nil ? .red : .green
         
         // Do any additional setup after loading the view.
-        
-       USDtextField1.keyboardType = UIKeyboardType.numberPad
         
         //HIDE KEYBOARD
         self.hideKeyboardWhenTappedAround()

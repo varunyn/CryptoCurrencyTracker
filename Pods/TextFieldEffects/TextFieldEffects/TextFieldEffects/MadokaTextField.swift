@@ -67,7 +67,7 @@ import UIKit
     // MARK: - TextFieldEffects
     
     override open func drawViewsForRect(_ rect: CGRect) {
-        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height / 1.3))
         
         placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(font!)
