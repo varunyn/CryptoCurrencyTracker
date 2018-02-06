@@ -399,6 +399,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HRw-aF-R4h"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ikJ-so-f3r"/>
                     <connections>
                         <outlet property="for1H" destination="Tp3-CK-27X" id="dj4-sq-C66"/>
                         <outlet property="for24H" destination="iHJ-kN-Sya" id="lbE-jO-Jzo"/>
@@ -412,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80R-bH-tgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3367.1999999999998" y="-232.53373313343329"/>
+            <point key="canvasLocation" x="3049" y="-199"/>
         </scene>
         <!--AllPageController-->
         <scene sceneID="ZPj-Wk-zQP">

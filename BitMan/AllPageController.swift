@@ -179,7 +179,8 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         
         SecondVC.NewData = [CryptoCurrency]
-
+        
+        self.navigationItem.searchController?.isActive = false
         self.navigationController?.pushViewController(SecondVC, animated: true)
     }
   
