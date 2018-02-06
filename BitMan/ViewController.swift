@@ -12,7 +12,7 @@ import GoogleSignIn
 import Firebase
 
 
-class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+class ViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate {
     
     @IBOutlet weak var GoogleLogin: GIDSignInButton!
     
@@ -31,8 +31,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBAction func GoogleLoginTapped(_ sender: Any) {
     }
-    
-    
     
     @IBAction func LoginButtonTapped(_ sender: Any) {
         if UserTextField.text == "" || PasswordTextField.text == "" {
@@ -109,27 +107,34 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let authentication = user.authentication {
-            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-            
-            Auth.auth().signIn(with: credential, completion: { (user, error) -> Void in
-                if error != nil {
-                    print("Problem at signing in with google with error : \(String(describing: error))")
-                } else if error == nil {
-                    print("user successfully signed in through GOOGLE! uid:\(Auth.auth().currentUser!.uid)")
-                    print("signed in")
-                    self.performSegue(withIdentifier: "segue1", sender: nil)
-                }
-            })
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        
+        
+        if let error = error {
+            // ...
+            return
         }
+        guard let authentication = user.authentication else { return }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credential, completion: { (user, error) -> Void in
+            if error != nil {
+                print("Problem at signing in with google with error : \(String(describing: error))")
+            } else if error == nil {
+                print("user successfully signed in through GOOGLE! uid:\(Auth.auth().currentUser!.uid)")
+                print("signed in")
+                self.performSegue(withIdentifier: "segue1", sender: nil)
+            }
+        })
+        
     }
-    
+
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
     }
-    
+
     func showLoginScreen() {
         let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "AllPageController") as? UITabBarController
         DispatchQueue.main.async {
@@ -141,8 +146,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+//        GIDSignIn.sharedInstance().signInSilently()
+//        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
         if Auth.auth().currentUser != nil {

@@ -10,9 +10,6 @@ import UIKit
 
 class CustomAllPageCell: UITableViewCell {
 
-    
-
-    
     @IBOutlet weak var percentLabel: UILabel!
     
     @IBOutlet weak var name: UILabel!

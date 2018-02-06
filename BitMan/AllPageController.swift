@@ -170,16 +170,16 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let StoryBoard = UIStoryboard(name: "Main", bundle: nil)
         let SecondVC = StoryBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-//        
+        
         let CryptoCurrency: FetchedData
         if isFiltering() {
             CryptoCurrency = filteredArray[indexPath.row]
         } else {
             CryptoCurrency = NewData[indexPath.row]
         }
-
+        
         SecondVC.NewData = [CryptoCurrency]
-//
+
         self.navigationController?.pushViewController(SecondVC, animated: true)
     }
   
