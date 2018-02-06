@@ -15,6 +15,7 @@
 		0109CC151FD7009B001524B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC141FD7009B001524B9 /* GoogleService-Info.plist */; };
 		010F2E841FEC8A4200773575 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F2E831FEC8A4200773575 /* CustomTabBarController.swift */; };
 		013646561FD838A8005652C7 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013646551FD838A8005652C7 /* FavViewController.swift */; };
+		016D2917200810400016D834 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2916200810400016D834 /* Model.swift */; };
 		018C67671FE03D8400A047F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C67661FE03D8400A047F3 /* DetailViewController.swift */; };
 		01BE40281FD7554F00174BA2 /* AllPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE40271FD7554F00174BA2 /* AllPageController.swift */; };
 		01BE402B1FD75C3D00174BA2 /* CustomAllPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE40291FD75C3D00174BA2 /* CustomAllPageCell.swift */; };
@@ -34,6 +35,7 @@
 		0109CC141FD7009B001524B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		010F2E831FEC8A4200773575 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		013646551FD838A8005652C7 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		016D2916200810400016D834 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		018C67661FE03D8400A047F3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		01BE40261FD7481900174BA2 /* Aventura-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aventura-Bold.otf"; sourceTree = "<group>"; };
 		01BE40271FD7554F00174BA2 /* AllPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPageController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				01D07FD41FDB072000373190 /* SettingsViewController.swift */,
 				013646551FD838A8005652C7 /* FavViewController.swift */,
 				010F2E831FEC8A4200773575 /* CustomTabBarController.swift */,
+				016D29182008106C0016D834 /* Model */,
 				01BE402D1FD75C4500174BA2 /* CustomCell */,
 				0109CC091FD6FEB2001524B9 /* Assets.xcassets */,
 				0109CC0B1FD6FEB2001524B9 /* LaunchScreen.storyboard */,
@@ -94,6 +97,14 @@
 				01BE40261FD7481900174BA2 /* Aventura-Bold.otf */,
 			);
 			path = BitMan;
+			sourceTree = "<group>";
+		};
+		016D29182008106C0016D834 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				016D2916200810400016D834 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		01BE402D1FD75C4500174BA2 /* CustomCell */ = {
@@ -247,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016D2917200810400016D834 /* Model.swift in Sources */,
 				0109CC051FD6FEB2001524B9 /* ViewController.swift in Sources */,
 				0109CC031FD6FEB2001524B9 /* AppDelegate.swift in Sources */,
 				010F2E841FEC8A4200773575 /* CustomTabBarController.swift in Sources */,

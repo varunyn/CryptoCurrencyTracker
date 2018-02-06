@@ -11,8 +11,9 @@ import FirebaseAuth
 import GoogleSignIn
 import Firebase
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
 
+class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+    
     @IBOutlet weak var GoogleLogin: GIDSignInButton!
     
     @IBOutlet weak var UserTextField: UITextField!
@@ -28,11 +29,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var UserNameField: UITextField!
     
-        
     @IBAction func GoogleLoginTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "segue1", sender: nil)
     }
- 
+    
     
     
     @IBAction func LoginButtonTapped(_ sender: Any) {
@@ -43,39 +42,38 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 if let password = PasswordTextField.text{
                     
                     if signUpMode {
-                // SIGN UP
+                        // SIGN UP
+                        
+                        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                            let ref = Database.database().reference().root
+                            
+                            if error != nil{
+                                self.displayAlert(title: "Error", message: error!.localizedDescription)
+                            } else {
+                                ref.child("users").child((user?.uid)!).setValue(email)
+                                
+                                guard let userkey = Auth.auth().currentUser?.uid else {return}
+                                
+                                Database.database().reference().child("users")
+                                    .child(userkey)
+                                    .child("user")
+                                    .childByAutoId()
+                                    .setValue(self.UserNameField.text)
+                                
+                                print("Sign up success")
+                                self.performSegue(withIdentifier: "segue1", sender: nil)
+                            }
+                        })
+                    } else{
                         
                         
-                Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                    let ref = Database.database().reference().root
-                    
-                    if error != nil{
-                        self.displayAlert(title: "Error", message: error!.localizedDescription)
-                    } else {
-                        ref.child("users").child((user?.uid)!).setValue(email)
-                        
-                        guard let userkey = Auth.auth().currentUser?.uid else {return}
-                        
-                        Database.database().reference().child("users")
-                            .child(userkey)
-                            .child("user")
-                            .childByAutoId()
-                            .setValue(self.UserNameField.text)
-                        
-                        print("Sign up success")
-                         self.performSegue(withIdentifier: "segue1", sender: nil)
-                    }
-                })
-            } else{
-                        
-                       
-                //LOGIN
-                Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-                    if error != nil{
-                        self.displayAlert(title: "Error", message: error!.localizedDescription)
-                    } else {
-                        print("Login success")
-                        self.performSegue(withIdentifier: "segue1", sender: nil)
+                        //LOGIN
+                        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                            if error != nil{
+                                self.displayAlert(title: "Error", message: error!.localizedDescription)
+                            } else {
+                                print("Login success")
+                                self.performSegue(withIdentifier: "segue1", sender: nil)
                             }
                         })
                     }
@@ -108,12 +106,31 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     
     @IBAction func GoogleSigninButtonTapped(_ sender: Any) {
-        
-        GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
     }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let authentication = user.authentication {
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            
+            Auth.auth().signIn(with: credential, completion: { (user, error) -> Void in
+                if error != nil {
+                    print("Problem at signing in with google with error : \(String(describing: error))")
+                } else if error == nil {
+                    print("user successfully signed in through GOOGLE! uid:\(Auth.auth().currentUser!.uid)")
+                    print("signed in")
+                    self.performSegue(withIdentifier: "segue1", sender: nil)
+                }
+            })
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+    
     func showLoginScreen() {
-   
         let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "AllPageController") as? UITabBarController
         DispatchQueue.main.async {
             self.present(mapViewControllerObj!, animated: true, completion: nil)
@@ -123,15 +140,18 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       UserNameField.isHidden = true
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         
         if Auth.auth().currentUser != nil {
-        showLoginScreen()
+            showLoginScreen()
         }
         
         self.hideKeyboardWhenTappedAround()
         LoginButton.layer.cornerRadius = 15
-       
+        
         SignUpButton.layer.cornerRadius = 15
         LoginButton.layer.borderWidth = 1.5
         LoginButton.layer.borderColor = UIColor.orange.cgColor
@@ -140,19 +160,14 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         GoogleLogin.layer.borderWidth = 1.5
         GoogleLogin.layer.borderColor = UIColor.red.cgColor
         
+        UserNameField.isHidden = true
         
-        
-//        GIDSignIn.sharedInstance().uiDelegate = self
-//        GIDSignIn.sharedInstance().signIn()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 }
 
 

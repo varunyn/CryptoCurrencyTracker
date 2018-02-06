@@ -12,9 +12,9 @@ import Firebase
 import NotificationBannerSwift
 
 class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
+    
     var  loadedData = [String]()
-   
+    
     var NewData = [FetchedData]()
     
     var NewData1 = [FetchedData]()
@@ -22,12 +22,12 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
     var refresher: UIRefreshControl!
     @IBOutlet weak var FavTableView: UITableView!
     
-/*  ---------------------- Start of ViewDiDLoad  ----------------------  */
+    /*  ---------------------- Start of ViewDiDLoad  ----------------------  */
     
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
-     
+        
         FavTableView.register(UINib(nibName: "CustomAllPageCell", bundle: nil),forCellReuseIdentifier: "AllPageCell")
         
         getFromFirebase()
@@ -41,8 +41,8 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         
     }
     
-/*  ---------------------- END of ViewDiDLoad  ----------------------  */
-
+    /*  ---------------------- END of ViewDiDLoad  ----------------------  */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,25 +53,25 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         FavTableView.setContentOffset(CGPoint.zero, animated: true)
         
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//      NewData1 = (self.tabBarController as! CustomTabBarController).model
-//
-//    }
-//
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//        for j in 0..<NewData1.count{
-//            for i in loadedData{
-//                if i == NewData1[j].name {
-//                    NewData.append(NewData1[j])
-//                }
-//            }
-////            print(NewData1[j].name)
-//        }
-//
-//    }
+    //    override func viewWillAppear(_ animated: Bool) {
+    //      NewData1 = (self.tabBarController as! CustomTabBarController).model
+    //
+    //    }
+    //
+    //    override func viewDidAppear(_ animated: Bool) {
+    //
+    //        for j in 0..<NewData1.count{
+    //            for i in loadedData{
+    //                if i == NewData1[j].name {
+    //                    NewData.append(NewData1[j])
+    //                }
+    //            }
+    ////            print(NewData1[j].name)
+    //        }
+    //
+    //    }
     
-/*  ---------------------- Start of TableView  ----------------------  */
+    /*  ---------------------- Start of TableView  ----------------------  */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loadedData.count
@@ -84,13 +84,13 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         cell.rank.text = NewData[indexPath.row].rank
         cell.priceUS.text = NewData[indexPath.row].price_usd
         cell.priceBTC.text = NewData[indexPath.row].price_btc
-
+        
         cell.percentLabel.text = NewData[indexPath.row].percentage
-
+        
         let change = cell.percentLabel.text
-
+        
         cell.percentLabel.textColor = change?.range(of: "-") != nil ? .red : .green
-
+        
         return cell
     }
     
@@ -102,20 +102,20 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         guard let userkey = Auth.auth().currentUser?.uid else {return}
         
         let CurrencyName = self.loadedData[indexPath.row]
         
-       Database.database().reference().child("users")
+        Database.database().reference().child("users")
             .child(userkey)
             .child("Favorite")
             .queryOrdered(byChild: "name")
             .queryEqual(toValue: CurrencyName)
-           
-        .observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            
+            .observeSingleEvent(of: .childAdded, with: { (snapshot) in
                 
                 
                 snapshot.ref.removeValue(completionBlock: { (error, reference) in
@@ -127,7 +127,7 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
                 })
                 
             })
-
+        
         let banner = NotificationBanner(title: "\(CurrencyName)", subtitle: "Deleted", style: .danger)
         banner.show()
         
@@ -135,70 +135,72 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
             banner.dismiss()
         }
         
-            self.loadedData.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        self.loadedData.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let StoryBoard = UIStoryboard(name: "Main", bundle: nil)
         let SecondVC = StoryBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-   
+        
         SecondVC.NewData = [NewData[indexPath.row]]
-       
+        
         self.navigationController?.pushViewController(SecondVC, animated: true)
     }
     
-/*  ---------------------- END of TABLEVIEW  ----------------------  */
+    /*  ---------------------- END of TABLEVIEW  ----------------------  */
     
     
     // FUNCTION FOR NETWORK CALL FROM API
     
     func getValue(){
-     
+        
         NewData = [FetchedData]()
-
+        
         print("URL")
         for i in loadedData{
-
-        let finalUrl = "https://api.coinmarketcap.com/v1/ticker/" + "\(i)" + "/"
-
-        let url = URL.init(string: finalUrl)
-
-        do{
-            let response = try Data.init(contentsOf: url!)
-
-            let json = JSON(data: response)
-            let j = 0
-
+            
+            let finalUrl = "https://api.coinmarketcap.com/v1/ticker/" + "\(i)" + "/"
+            
+            let url = URL.init(string: finalUrl)
+            
+            do{
+                let response = try Data.init(contentsOf: url!)
+                
+                let json = JSON(data: response)
+                let j = 0
+                
                 let title = String(describing: json[j]["name"])
-
+                
                 let rank = String(describing: json[j]["rank"])
-
+                
                 let USD = String(describing: json[j]["price_usd"])
-
+                
                 let BTC = String(describing: json[j]["price_btc"])
-
+                
                 let percent = String(describing: json[j]["percent_change_24h"])
-
+                
                 let percent1h = String(describing: json[j]["percent_change_1h"])
-
+                
                 let percent7d = String(describing: json[j]["percent_change_7d"])
-
+                
                 let Vol = String(describing: json[j]["24h_volume_usd"])
-
+                
                 let ID = String(describing: json[i]["id"])
-
+                
+                let symbl = String(describing: json[i]["symbol"])
+                
                 let c = "%"
-
+                
                 let finalper = "\(percent)" + c
-
-            self.NewData.append(FetchedData(name: title,rank: rank, price_usd:USD, price_btc:BTC,percentage:finalper, coinId:ID, percentage1h: percent1h, percentage7d: percent7d, vol24h: Vol))
-
-        } catch let error {
-            print(error)
+                
+                self.NewData.append(FetchedData(name: title,rank: rank, price_usd:USD, price_btc:BTC,percentage:finalper, coinId:ID, percentage1h: percent1h, percentage7d: percent7d, vol24h: Vol, symbol: symbl))
+                
+            } catch let error {
+                print(error)
+            }
         }
-     }
         FavTableView.reloadData()
     }
     
@@ -211,22 +213,22 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         print("Get from firebase")
         
         Database.database().reference().child("users")
-                                       .child(userkey)
-                                       .child("Favorite")
-                                       .observe(.childAdded, with:
-    { (snapshot) in
-
-        if let getData = snapshot.value as? [String:Any] {
-        let wins = getData["name"] as? String
-        self.loadedData.append(wins!)
+            .child(userkey)
+            .child("Favorite")
+            .observe(.childAdded, with:
+                { (snapshot) in
+                    
+                    if let getData = snapshot.value as? [String:Any] {
+                        let wins = getData["name"] as? String
+                        self.loadedData.append(wins!)
+                        
+                        print(wins!)
+                    }
+            }, withCancel: { (error) in
+                print(error.localizedDescription)
+            })
         
-        print(wins!)
-        }
-    }, withCancel: { (error) in
-                      print(error.localizedDescription)
-                   })
-  
-//        getValue()
+        //        getValue()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.00, execute: { self.getValue()  })
         
     }
@@ -235,14 +237,14 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         getFromFirebase()
     }
     
-      @objc func initializeLoadedData(){
-      loadedData = [String]()
+    @objc func initializeLoadedData(){
+        loadedData = [String]()
     }
     
     @objc func populate()
     {
-       getValue()
-       refresher.endRefreshing()
+        getValue()
+        refresher.endRefreshing()
     }
 }
 

@@ -24,9 +24,6 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
     
     var valueSaved = false
     
-
-    
-
 /*  ---------------------- Start of Search Function  ----------------------  */
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -97,7 +94,6 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.isActive = true
-
     }
     
     
@@ -323,16 +319,16 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
                 let ID = String(describing: json[i]["id"])
                 let percent = String(describing: json[i]["percent_change_24h"])
                 let percent1h = String(describing: json[i]["percent_change_1h"])
+                let symbl = String(describing: json[i]["symbol"])
                 
                 let percent7d = String(describing: json[i]["percent_change_7d"])
                 
                 let Vol = String(describing: json[i]["24h_volume_usd"])
                 
-                
                 let c = "%"
                 let finalper = "\(percent)" + c
               
-                self.NewData.append(FetchedData(name: title,rank: rank, price_usd:USD, price_btc:BTC,percentage:finalper, coinId:ID, percentage1h: percent1h, percentage7d: percent7d, vol24h: Vol))
+                self.NewData.append(FetchedData(name: title,rank: rank, price_usd:USD, price_btc:BTC,percentage:finalper, coinId:ID, percentage1h: percent1h, percentage7d: percent7d, vol24h: Vol, symbol: symbl))
                 
             }
         } catch let error {
