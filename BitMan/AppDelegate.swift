@@ -11,7 +11,7 @@ import Firebase
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     
     var window: UIWindow?
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
@@ -25,7 +25,7 @@ GIDSignIn.sharedInstance().handle(url,sourceApplication:options[UIApplicationOpe
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-//        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().delegate = self
         
         Thread.sleep(forTimeInterval: 1.0)
         return true
@@ -52,40 +52,42 @@ GIDSignIn.sharedInstance().handle(url,sourceApplication:options[UIApplicationOpe
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-//        // ...
-//        // ...
-//        if let error = error {
-//            // ...
-//            return
-//        }
-//
-//        guard let authentication = user.authentication else { return }
-//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-//                                                       accessToken: authentication.accessToken)
-//        // ...
-//        Auth.auth().signIn(with: credential) { (user, error) in
-//            if let error = error {
-//                // ...
-//                return
-//            }
-//            // User is signed in
-//            print("User signed in with Google")
-//
-//            // ...
-//        }
-//    }
-    
 
-    
-    
-   
-//    
-//    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-//        // Perform any operations when the user disconnects from app here.
-//        // ...
-//    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        
+        
+        if let error = error {
+            // ...
+            print(error)
+            return
+        }
+        guard let authentication = user.authentication else { return }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credential, completion: { (user, error) -> Void in
+            if error != nil {
+                print("Problem at signing in with google with error : \(String(describing: error))")
+            } else if error == nil {
+                print("user successfully signed in through GOOGLE! uid:\(Auth.auth().currentUser!.uid)")
+                print("signed in")
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let scheduleController = storyboard.instantiateViewController(withIdentifier: "AllPageController")
+                
+                self.window!.rootViewController!.present(scheduleController, animated: true, completion: nil)
+                
+//                self.window!.rootViewController = scheduleController
+//                self.window!.makeKeyAndVisible()
+            }
+        })
+        
+    }
+
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
 
 
 }

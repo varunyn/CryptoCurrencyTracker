@@ -23,12 +23,11 @@ extension UIViewController {
     }
 }
 
-private class CubicLineSampleFillFormatter: IFillFormatter {
+class CubicLineSampleFillFormatter: IFillFormatter {
     func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {
         return -10
     }
 }
-
 
 class DetailViewController: UIViewController {
     
@@ -41,15 +40,12 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var lineChart: LineChartView!
     
-    
-    
     var times  = [Double]()
     var prices = [Double]()
     
     @IBOutlet weak var forName: UILabel!
     
     var NewData = [FetchedData]()
-    var c = ""
     
     @IBOutlet weak var forUSD: UILabel!
     
@@ -85,9 +81,10 @@ class DetailViewController: UIViewController {
         //HIDE KEYBOARD
         self.hideKeyboardWhenTappedAround()
         
-        let symbol = String(NewData[0].symbol).uppercased()
         times  = [Double]()
         prices = [Double]()
+        
+        let symbol = String(NewData[0].symbol).uppercased()
         
         let finalUrl = "http://coincap.io/history/1day/" + "\(symbol)"
         
@@ -108,42 +105,15 @@ class DetailViewController: UIViewController {
             }
             self.lineChartUpdate()
         }
-        
-        //        let url = URL.init(string: finalUrl)
-        //        let networkResponse = URLSession.shared.dataTask(with: url!){ [weak self] ( data, response, error) in
-        //             guard let data = data else { return }
-        //        do{
-        //            let response = try Data.init(contentsOf: url!)
-        //
-        //            let json = JSON(data: response)
-        //            for i in 0...10{
-        //
-        //                let time  = json["price"][i][0].int
-        //                let priceInUsd = json["price"][i][1].int
-        //
-        //                self?.times.append(time!)
-        //                self?.prices.append(priceInUsd!)
-        //
-        //            }
-        //        } catch let error {
-        //
-        //            print(error)
-        //        }
-        //        }
-        //        networkResponse.resume()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         NewData = [FetchedData]()
     }
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    private func convertValue (usd: Double, coin: Double) {
-        
     }
     
     func lineChartUpdate(){
@@ -152,26 +122,29 @@ class DetailViewController: UIViewController {
         
         for i in 0..<prices.count{
             let value = ChartDataEntry(x: Double(i), y: Double(prices[i]))
+            print(value)
             lineChartEntry.append(value)
         }
         
-        let line = LineChartDataSet(values : lineChartEntry, label: "prices")
+        let line = LineChartDataSet(values : lineChartEntry, label: "")
+        lineChart.animate(xAxisDuration: 1.1, yAxisDuration: 1.0, easingOption: .easeInCubic)
+        
         line.mode = .cubicBezier
         line.drawValuesEnabled = false
-        lineChart.xAxis.enabled = false
         
+        lineChart.xAxis.enabled = false
+        lineChart.chartDescription?.text = "24 Hour"
         lineChart.leftAxis.drawGridLinesEnabled = false
         lineChart.rightAxis.drawGridLinesEnabled = false
-        
         lineChart.leftAxis.drawLabelsEnabled = false
         lineChart.rightAxis.drawLabelsEnabled = false
+        
         line.drawCirclesEnabled = false
         line.lineWidth = 1.8
-        
         line.circleRadius = 4
         line.setCircleColor(.white)
-        line.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
-        line.fillColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
+        line.highlightColor = UIColor(hue: 0.3806, saturation: 0.4, brightness: 0.77, alpha: 1.0)
+        line.fillColor = UIColor(hue: 0.3806, saturation: 0.4, brightness: 0.77, alpha: 1.0)
         line.fillAlpha = 1
         line.drawHorizontalHighlightIndicatorEnabled = false
         line.fillFormatter = CubicLineSampleFillFormatter()

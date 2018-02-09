@@ -31,6 +31,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var LogoutButton: UIButton!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBAction func LogoutButtonTapped(_ sender: Any) {
         
         let firebaseAuth = Auth.auth()
@@ -44,12 +46,39 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func supportButtonTapped(_ sender: Any) {
+        let email = "varunycs@gmail.com"
+        if let url = NSURL(string: "mailto:\(email)") {
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func aboutButtonTapped(_ sender: Any) {
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+         navigationItem.title = "Settings"
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        // Do any additional setup after loading the view.
+        guard let userkey = Auth.auth().currentUser?.uid else {return}
+        
+        Database.database().reference().child("users")
+            .child(userkey)
+            .observeSingleEvent(of: .value) { (snapshot) in
+                let value = snapshot.value as? [String:Any]
+                if value != nil {
+                    if let name = value!["user"] {
+                        self.nameLabel.text =  "Hi" + " " + String(describing: name)
+                    }
+                    
+//                    let name =  String(describing: value!["user"])
+//                    self.nameLabel.text =  "Hi" + " " + String(name)
+                }
+        }
     }
     
     override func didReceiveMemoryWarning() {

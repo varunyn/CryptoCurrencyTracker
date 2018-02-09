@@ -16,6 +16,7 @@ pod 'SwiftyJSON'
 pod 'NotificationBannerSwift'
 pod 'Charts', '~> 3.0'
 pod 'Alamofire', '~> 4.5'
+
   # Pods for BitMan
 
 end

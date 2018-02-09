@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Firebase
 import NotificationBannerSwift
-
+import Alamofire
 
 
 class AllPageController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, UISearchControllerDelegate {
@@ -23,6 +23,7 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
     var filteredArray = [FetchedData]()
     
     var valueSaved = false
+    
     
 /*  ---------------------- Start of Search Function  ----------------------  */
     
@@ -59,6 +60,7 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         self.tabBarController?.delegate = self
         search.delegate = self
 
+        getValue()
         
         // SearchBar
         
@@ -68,13 +70,10 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CustomAllPageCell", bundle: nil),forCellReuseIdentifier: "AllPageCell")
         
-        getValue()
+        
         
         tableView.setEditing(false, animated: false)
-        
-//        let longpress = UILongPressGestureRecognizer(target: self, action: Selector("longPressGestureRecognized:"))
-//        tableView.addGestureRecognizer(longpress)
-        
+     
         // PULL TO REFRESH
         
         refresher = UIRefreshControl()
@@ -138,7 +137,7 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
     }
   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "AllPageCell", for: indexPath) as! CustomAllPageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllPageCell", for: indexPath) as! CustomAllPageCell
         
         let CryptoCurrency: FetchedData
         if isFiltering() {
@@ -146,19 +145,18 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         } else {
             CryptoCurrency = NewData[indexPath.row]
         }
-
+        
         cell.name.text = CryptoCurrency.name
         cell.rank.text = CryptoCurrency.rank
         cell.priceUS.text = CryptoCurrency.price_usd
         
-        cell.priceBTC.text = CryptoCurrency.price_btc
-
+        //        cell.priceBTC.text = CryptoCurrency.price_btc
+        
         cell.percentLabel.text = NewData[indexPath.row].percentage
         
         let change = cell.percentLabel.text
         
-        cell.percentLabel.textColor = change?.range(of: "-") != nil ? .red : .green
-
+        cell.percentLabel.textColor = change?.range(of: "-") != nil ? .red : UIColor(hue: 0.3667, saturation: 0.43, brightness: 0.78, alpha: 1.0)
         return cell
     }
 
@@ -192,14 +190,14 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         let CurrencyName = self.NewData[indexPath.row].coinId
         let nameSave : [String:Any] = ["name":CurrencyName]
         
-        let banner1 = NotificationBanner(title: "\(CurrencyName)", subtitle: "Added to portfolio", style: .success)
-        let banner2 = NotificationBanner(title: "\(CurrencyName)", subtitle: "Already added", style: .warning)
+        let addedToPortfolioBanner = NotificationBanner(title: "\(CurrencyName)", subtitle: "Added to portfolio", style: .success)
+        let alreadyAddedBanner = NotificationBanner(title: "\(CurrencyName)", subtitle: "Already added", style: .warning)
         
         let closeAction = UIContextualAction(style: .normal, title:  "Add to Fav", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             success(true)
     
-        guard let userkey = Auth.auth().currentUser?.uid else {return}
-
+            guard let userkey = Auth.auth().currentUser?.uid else {return}
+            
             Database.database().reference().child("users")
                 .child(userkey)
                 .child("Favorite")
@@ -208,30 +206,25 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
                 .observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if snapshot.value as? [String : AnyObject] != nil{
-                       
-                        banner2.show()
-                        
+                        alreadyAddedBanner.show()
                     } else {
-                        
                         Database.database().reference().child("users")
                             .child(userkey)
                             .child("Favorite")
                             .childByAutoId()
                             .setValue(nameSave, withCompletionBlock: { (error, database) in
-                                
-                        if error != nil {
-                            print("Error")
-                            }
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-                        
-                        })
-                         banner1.show()
+                                if error != nil {
+                                    print("Error")
+                                }
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                            })
+                        addedToPortfolioBanner.show()
                     }
                 })
-            })
+        })
        
         closeAction.backgroundColor = .orange
-        closeAction.image = UIImage(named: "fav1")
+        closeAction.image = UIImage(named: "Star")
         
         return UISwipeActionsConfiguration(actions: [closeAction])
     }
@@ -248,8 +241,8 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
 ////        let CurrencyName = self.NewData[indexPath.row].coinId
 ////        let nameSave : [String:Any] = ["name":CurrencyName]
 ////
-////        let banner1 = NotificationBanner(title: "\(CurrencyName)", subtitle: "Added to portfolio", style: .success)
-////        let banner2 = NotificationBanner(title: "\(CurrencyName)", subtitle: "Already added", style: .warning)
+////        let addedToPortfolioBanner = NotificationBanner(title: "\(CurrencyName)", subtitle: "Added to portfolio", style: .success)
+////        let alreadyAddedBanner = NotificationBanner(title: "\(CurrencyName)", subtitle: "Already added", style: .warning)
 ////
 ////        let closeAction = UIContextualAction(style: .normal, title:  "Add to Fav", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
 ////            success(true)
@@ -264,7 +257,7 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
 ////                .observeSingleEvent(of: .value, with: { (snapshot) in
 ////
 ////                    if snapshot.value as? [String : AnyObject] != nil{
-////                        banner2.show()
+////                        alreadyAddedBanner.show()
 ////
 ////                    } else {
 ////
@@ -280,7 +273,7 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
 ////                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
 ////
 ////                            })
-////                        banner1.show()
+////                        addedToPortfolioBanner.show()
 ////                    }
 ////
 ////                })
@@ -348,7 +341,6 @@ class AllPageController: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.reloadData()
         refresher.endRefreshing()
     }
-
 }
 
 

@@ -28,10 +28,11 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         
         super.viewDidLoad()
         
+         navigationItem.title = "Portfolio"
         FavTableView.register(UINib(nibName: "CustomAllPageCell", bundle: nil),forCellReuseIdentifier: "AllPageCell")
         
         getFromFirebase()
-        
+
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: #selector(AllPageController.populate), for: UIControlEvents.valueChanged)
@@ -83,13 +84,13 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         cell.name.text = NewData[indexPath.row].name
         cell.rank.text = NewData[indexPath.row].rank
         cell.priceUS.text = NewData[indexPath.row].price_usd
-        cell.priceBTC.text = NewData[indexPath.row].price_btc
+//        cell.priceBTC.text = NewData[indexPath.row].price_btc
         
         cell.percentLabel.text = NewData[indexPath.row].percentage
         
         let change = cell.percentLabel.text
         
-        cell.percentLabel.textColor = change?.range(of: "-") != nil ? .red : .green
+        cell.percentLabel.textColor = change?.range(of: "-") != nil ? .red : UIColor(hue: 0.3667, saturation: 0.43, brightness: 0.78, alpha: 1.0)
         
         return cell
     }
@@ -187,9 +188,9 @@ class FavViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
                 
                 let Vol = String(describing: json[j]["24h_volume_usd"])
                 
-                let ID = String(describing: json[i]["id"])
+                let ID = String(describing: json[j]["id"])
                 
-                let symbl = String(describing: json[i]["symbol"])
+                let symbl = String(describing: json[j]["symbol"])
                 
                 let c = "%"
                 

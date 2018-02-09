@@ -11,16 +11,19 @@
 		0109CC051FD6FEB2001524B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109CC041FD6FEB2001524B9 /* ViewController.swift */; };
 		0109CC081FD6FEB2001524B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC061FD6FEB2001524B9 /* Main.storyboard */; };
 		0109CC0A1FD6FEB2001524B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC091FD6FEB2001524B9 /* Assets.xcassets */; };
-		0109CC0D1FD6FEB2001524B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC0B1FD6FEB2001524B9 /* LaunchScreen.storyboard */; };
 		0109CC151FD7009B001524B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC141FD7009B001524B9 /* GoogleService-Info.plist */; };
 		010F2E841FEC8A4200773575 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F2E831FEC8A4200773575 /* CustomTabBarController.swift */; };
 		013646561FD838A8005652C7 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013646551FD838A8005652C7 /* FavViewController.swift */; };
+		01373E04202CE0FA006843FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC0B1FD6FEB2001524B9 /* LaunchScreen.storyboard */; };
+		01373E06202CE813006843FF /* logo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 01373E05202CE813006843FF /* logo3.png */; };
 		016D2917200810400016D834 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2916200810400016D834 /* Model.swift */; };
+		018343C3202D185800CAC50E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018343C2202D185800CAC50E /* AboutViewController.swift */; };
 		018C67671FE03D8400A047F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C67661FE03D8400A047F3 /* DetailViewController.swift */; };
 		01BE40281FD7554F00174BA2 /* AllPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE40271FD7554F00174BA2 /* AllPageController.swift */; };
 		01BE402B1FD75C3D00174BA2 /* CustomAllPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE40291FD75C3D00174BA2 /* CustomAllPageCell.swift */; };
 		01BE402C1FD75C3D00174BA2 /* CustomAllPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE402A1FD75C3D00174BA2 /* CustomAllPageCell.xib */; };
 		01D07FD51FDB072000373190 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D07FD41FDB072000373190 /* SettingsViewController.swift */; };
+		01D1DC13202CEA3600C0DB61 /* CT_PNG.png in Resources */ = {isa = PBXBuildFile; fileRef = 01D1DC12202CEA3500C0DB61 /* CT_PNG.png */; };
 		811D1662DE64B04A3DA99D08 /* Pods_BitMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406FFC9B5BBABCC2C73816D4 /* Pods_BitMan.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,13 +38,16 @@
 		0109CC141FD7009B001524B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		010F2E831FEC8A4200773575 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		013646551FD838A8005652C7 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		01373E05202CE813006843FF /* logo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3.png; sourceTree = "<group>"; };
 		016D2916200810400016D834 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		018343C2202D185800CAC50E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		018C67661FE03D8400A047F3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		01BE40261FD7481900174BA2 /* Aventura-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aventura-Bold.otf"; sourceTree = "<group>"; };
 		01BE40271FD7554F00174BA2 /* AllPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPageController.swift; sourceTree = "<group>"; };
 		01BE40291FD75C3D00174BA2 /* CustomAllPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAllPageCell.swift; sourceTree = "<group>"; };
 		01BE402A1FD75C3D00174BA2 /* CustomAllPageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAllPageCell.xib; sourceTree = "<group>"; };
 		01D07FD41FDB072000373190 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		01D1DC12202CEA3500C0DB61 /* CT_PNG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CT_PNG.png; sourceTree = "<group>"; };
 		406FFC9B5BBABCC2C73816D4 /* Pods_BitMan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitMan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CD2428D813422A6C8486A3 /* Pods-BitMan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitMan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitMan/Pods-BitMan.debug.xcconfig"; sourceTree = "<group>"; };
 		BBE660A8FD9DA30DF97F8B8F /* Pods-BitMan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitMan.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitMan/Pods-BitMan.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 		0109CBF61FD6FEB2001524B9 = {
 			isa = PBXGroup;
 			children = (
+				01D1DC12202CEA3500C0DB61 /* CT_PNG.png */,
+				01373E05202CE813006843FF /* logo3.png */,
 				0109CC011FD6FEB2001524B9 /* BitMan */,
 				0109CC001FD6FEB2001524B9 /* Products */,
 				0A57EF812C5DB4F2280F60B0 /* Pods */,
@@ -84,6 +92,7 @@
 				0109CC041FD6FEB2001524B9 /* ViewController.swift */,
 				01BE40271FD7554F00174BA2 /* AllPageController.swift */,
 				0109CC061FD6FEB2001524B9 /* Main.storyboard */,
+				018343C2202D185800CAC50E /* AboutViewController.swift */,
 				018C67661FE03D8400A047F3 /* DetailViewController.swift */,
 				01D07FD41FDB072000373190 /* SettingsViewController.swift */,
 				013646551FD838A8005652C7 /* FavViewController.swift */,
@@ -195,10 +204,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0109CC0D1FD6FEB2001524B9 /* LaunchScreen.storyboard in Resources */,
+				01D1DC13202CEA3600C0DB61 /* CT_PNG.png in Resources */,
+				01373E06202CE813006843FF /* logo3.png in Resources */,
 				0109CC151FD7009B001524B9 /* GoogleService-Info.plist in Resources */,
 				01BE402C1FD75C3D00174BA2 /* CustomAllPageCell.xib in Resources */,
 				0109CC0A1FD6FEB2001524B9 /* Assets.xcassets in Resources */,
+				01373E04202CE0FA006843FF /* LaunchScreen.storyboard in Resources */,
 				0109CC081FD6FEB2001524B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +277,7 @@
 				013646561FD838A8005652C7 /* FavViewController.swift in Sources */,
 				01BE402B1FD75C3D00174BA2 /* CustomAllPageCell.swift in Sources */,
 				01D07FD51FDB072000373190 /* SettingsViewController.swift in Sources */,
+				018343C3202D185800CAC50E /* AboutViewController.swift in Sources */,
 				018C67671FE03D8400A047F3 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
