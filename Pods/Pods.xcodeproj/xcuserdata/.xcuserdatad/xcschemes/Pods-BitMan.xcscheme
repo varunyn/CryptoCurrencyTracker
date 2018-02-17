@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4FDFD431304F0BB5A3BED06F6096FB3F'
+               BlueprintIdentifier = 'F7F346FE6AD0430B102A0F7DDB120CD6'
                BlueprintName = 'Pods-BitMan'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-BitMan.framework'>

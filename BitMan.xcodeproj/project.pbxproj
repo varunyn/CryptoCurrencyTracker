@@ -17,13 +17,29 @@
 		01373E04202CE0FA006843FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0109CC0B1FD6FEB2001524B9 /* LaunchScreen.storyboard */; };
 		01373E06202CE813006843FF /* logo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 01373E05202CE813006843FF /* logo3.png */; };
 		016D2917200810400016D834 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2916200810400016D834 /* Model.swift */; };
+		016F56A7202E10B7007A0ABD /* addToFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F56A6202E10B7007A0ABD /* addToFavViewController.swift */; };
+		016F56A9202E12F2007A0ABD /* FirstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F56A8202E12F2007A0ABD /* FirstCustomCell.swift */; };
+		016F56AB202E1301007A0ABD /* SecondCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F56AA202E1301007A0ABD /* SecondCustomCell.swift */; };
+		016F56AD202E130F007A0ABD /* ThirdCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F56AC202E130F007A0ABD /* ThirdCustomCell.swift */; };
+		016F56AF202E131D007A0ABD /* FourthCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F56AE202E131D007A0ABD /* FourthCustomCell.swift */; };
+		016F56B1202E1B76007A0ABD /* fifthCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F56B0202E1B76007A0ABD /* fifthCustomCell.swift */; };
+		017EFA46203259590017540F /* priceBoughtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017EFA45203259590017540F /* priceBoughtCell.swift */; };
+		017EFA48203259720017540F /* totalAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017EFA47203259720017540F /* totalAmountCell.swift */; };
+		017EFA4A203273250017540F /* portFolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017EFA49203273250017540F /* portFolioViewController.swift */; };
+		017EFA4C203289AE0017540F /* portFolioCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017EFA4B203289AE0017540F /* portFolioCustomCell.swift */; };
 		018343C3202D185800CAC50E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018343C2202D185800CAC50E /* AboutViewController.swift */; };
 		018C67671FE03D8400A047F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C67661FE03D8400A047F3 /* DetailViewController.swift */; };
 		01BE40281FD7554F00174BA2 /* AllPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE40271FD7554F00174BA2 /* AllPageController.swift */; };
 		01BE402B1FD75C3D00174BA2 /* CustomAllPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE40291FD75C3D00174BA2 /* CustomAllPageCell.swift */; };
 		01BE402C1FD75C3D00174BA2 /* CustomAllPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE402A1FD75C3D00174BA2 /* CustomAllPageCell.xib */; };
+		01C0A2562034C35C00C8C0FC /* transactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0A2552034C35C00C8C0FC /* transactionViewController.swift */; };
+		01C0A2582034CF9A00C8C0FC /* transactionCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0A2572034CF9A00C8C0FC /* transactionCustomCell.swift */; };
 		01D07FD51FDB072000373190 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D07FD41FDB072000373190 /* SettingsViewController.swift */; };
 		01D1DC13202CEA3600C0DB61 /* CT_PNG.png in Resources */ = {isa = PBXBuildFile; fileRef = 01D1DC12202CEA3500C0DB61 /* CT_PNG.png */; };
+		01D9D9E8203205B9000FBC7E /* pickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D9D9E7203205B9000FBC7E /* pickerViewController.swift */; };
+		01F93506203209DF0098CB2C /* pickerCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F93505203209DF0098CB2C /* pickerCustomCell.swift */; };
+		01F9350920323DE30098CB2C /* pairPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9350820323DE30098CB2C /* pairPickerCell.swift */; };
+		01F9350B20323DFD0098CB2C /* pairPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9350A20323DFD0098CB2C /* pairPickerController.swift */; };
 		811D1662DE64B04A3DA99D08 /* Pods_BitMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406FFC9B5BBABCC2C73816D4 /* Pods_BitMan.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,14 +56,30 @@
 		013646551FD838A8005652C7 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		01373E05202CE813006843FF /* logo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3.png; sourceTree = "<group>"; };
 		016D2916200810400016D834 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		016F56A6202E10B7007A0ABD /* addToFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addToFavViewController.swift; sourceTree = "<group>"; };
+		016F56A8202E12F2007A0ABD /* FirstCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCustomCell.swift; sourceTree = "<group>"; };
+		016F56AA202E1301007A0ABD /* SecondCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCustomCell.swift; sourceTree = "<group>"; };
+		016F56AC202E130F007A0ABD /* ThirdCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCustomCell.swift; sourceTree = "<group>"; };
+		016F56AE202E131D007A0ABD /* FourthCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthCustomCell.swift; sourceTree = "<group>"; };
+		016F56B0202E1B76007A0ABD /* fifthCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthCustomCell.swift; sourceTree = "<group>"; };
+		017EFA45203259590017540F /* priceBoughtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priceBoughtCell.swift; sourceTree = "<group>"; };
+		017EFA47203259720017540F /* totalAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = totalAmountCell.swift; sourceTree = "<group>"; };
+		017EFA49203273250017540F /* portFolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = portFolioViewController.swift; sourceTree = "<group>"; };
+		017EFA4B203289AE0017540F /* portFolioCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = portFolioCustomCell.swift; sourceTree = "<group>"; };
 		018343C2202D185800CAC50E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		018C67661FE03D8400A047F3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		01BE40261FD7481900174BA2 /* Aventura-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aventura-Bold.otf"; sourceTree = "<group>"; };
 		01BE40271FD7554F00174BA2 /* AllPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPageController.swift; sourceTree = "<group>"; };
 		01BE40291FD75C3D00174BA2 /* CustomAllPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAllPageCell.swift; sourceTree = "<group>"; };
 		01BE402A1FD75C3D00174BA2 /* CustomAllPageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAllPageCell.xib; sourceTree = "<group>"; };
+		01C0A2552034C35C00C8C0FC /* transactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transactionViewController.swift; sourceTree = "<group>"; };
+		01C0A2572034CF9A00C8C0FC /* transactionCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transactionCustomCell.swift; sourceTree = "<group>"; };
 		01D07FD41FDB072000373190 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		01D1DC12202CEA3500C0DB61 /* CT_PNG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CT_PNG.png; sourceTree = "<group>"; };
+		01D9D9E7203205B9000FBC7E /* pickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerViewController.swift; sourceTree = "<group>"; };
+		01F93505203209DF0098CB2C /* pickerCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerCustomCell.swift; sourceTree = "<group>"; };
+		01F9350820323DE30098CB2C /* pairPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pairPickerCell.swift; sourceTree = "<group>"; };
+		01F9350A20323DFD0098CB2C /* pairPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pairPickerController.swift; sourceTree = "<group>"; };
 		406FFC9B5BBABCC2C73816D4 /* Pods_BitMan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitMan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CD2428D813422A6C8486A3 /* Pods-BitMan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitMan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitMan/Pods-BitMan.debug.xcconfig"; sourceTree = "<group>"; };
 		BBE660A8FD9DA30DF97F8B8F /* Pods-BitMan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitMan.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitMan/Pods-BitMan.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,13 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				0109CC021FD6FEB2001524B9 /* AppDelegate.swift */,
-				0109CC041FD6FEB2001524B9 /* ViewController.swift */,
-				01BE40271FD7554F00174BA2 /* AllPageController.swift */,
+				01F9350720322A0D0098CB2C /* Controller */,
 				0109CC061FD6FEB2001524B9 /* Main.storyboard */,
-				018343C2202D185800CAC50E /* AboutViewController.swift */,
-				018C67661FE03D8400A047F3 /* DetailViewController.swift */,
-				01D07FD41FDB072000373190 /* SettingsViewController.swift */,
-				013646551FD838A8005652C7 /* FavViewController.swift */,
 				010F2E831FEC8A4200773575 /* CustomTabBarController.swift */,
 				016D29182008106C0016D834 /* Model */,
 				01BE402D1FD75C4500174BA2 /* CustomCell */,
@@ -119,10 +146,39 @@
 		01BE402D1FD75C4500174BA2 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				01F93505203209DF0098CB2C /* pickerCustomCell.swift */,
 				01BE40291FD75C3D00174BA2 /* CustomAllPageCell.swift */,
 				01BE402A1FD75C3D00174BA2 /* CustomAllPageCell.xib */,
+				016F56A8202E12F2007A0ABD /* FirstCustomCell.swift */,
+				016F56AA202E1301007A0ABD /* SecondCustomCell.swift */,
+				016F56AC202E130F007A0ABD /* ThirdCustomCell.swift */,
+				016F56AE202E131D007A0ABD /* FourthCustomCell.swift */,
+				016F56B0202E1B76007A0ABD /* fifthCustomCell.swift */,
+				01F9350820323DE30098CB2C /* pairPickerCell.swift */,
+				017EFA47203259720017540F /* totalAmountCell.swift */,
+				017EFA45203259590017540F /* priceBoughtCell.swift */,
+				017EFA4B203289AE0017540F /* portFolioCustomCell.swift */,
+				01C0A2572034CF9A00C8C0FC /* transactionCustomCell.swift */,
 			);
 			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		01F9350720322A0D0098CB2C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0109CC041FD6FEB2001524B9 /* ViewController.swift */,
+				01BE40271FD7554F00174BA2 /* AllPageController.swift */,
+				01D9D9E7203205B9000FBC7E /* pickerViewController.swift */,
+				016F56A6202E10B7007A0ABD /* addToFavViewController.swift */,
+				018343C2202D185800CAC50E /* AboutViewController.swift */,
+				018C67661FE03D8400A047F3 /* DetailViewController.swift */,
+				01D07FD41FDB072000373190 /* SettingsViewController.swift */,
+				013646551FD838A8005652C7 /* FavViewController.swift */,
+				01F9350A20323DFD0098CB2C /* pairPickerController.swift */,
+				017EFA49203273250017540F /* portFolioViewController.swift */,
+				01C0A2552034C35C00C8C0FC /* transactionViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		0A57EF812C5DB4F2280F60B0 /* Pods */ = {
@@ -223,9 +279,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BitMan/Pods-BitMan-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -238,13 +297,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BitMan-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED37FB027A53F9A6967BCFAA /* [CP] Embed Pods Frameworks */ = {
@@ -253,9 +315,40 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BitMan/Pods-BitMan-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -271,14 +364,30 @@
 			files = (
 				016D2917200810400016D834 /* Model.swift in Sources */,
 				0109CC051FD6FEB2001524B9 /* ViewController.swift in Sources */,
+				017EFA48203259720017540F /* totalAmountCell.swift in Sources */,
+				01C0A2562034C35C00C8C0FC /* transactionViewController.swift in Sources */,
+				017EFA4A203273250017540F /* portFolioViewController.swift in Sources */,
 				0109CC031FD6FEB2001524B9 /* AppDelegate.swift in Sources */,
+				017EFA4C203289AE0017540F /* portFolioCustomCell.swift in Sources */,
 				010F2E841FEC8A4200773575 /* CustomTabBarController.swift in Sources */,
 				01BE40281FD7554F00174BA2 /* AllPageController.swift in Sources */,
 				013646561FD838A8005652C7 /* FavViewController.swift in Sources */,
 				01BE402B1FD75C3D00174BA2 /* CustomAllPageCell.swift in Sources */,
 				01D07FD51FDB072000373190 /* SettingsViewController.swift in Sources */,
 				018343C3202D185800CAC50E /* AboutViewController.swift in Sources */,
+				01D9D9E8203205B9000FBC7E /* pickerViewController.swift in Sources */,
+				016F56A7202E10B7007A0ABD /* addToFavViewController.swift in Sources */,
+				016F56AF202E131D007A0ABD /* FourthCustomCell.swift in Sources */,
+				01F93506203209DF0098CB2C /* pickerCustomCell.swift in Sources */,
+				016F56AD202E130F007A0ABD /* ThirdCustomCell.swift in Sources */,
+				016F56B1202E1B76007A0ABD /* fifthCustomCell.swift in Sources */,
+				01F9350B20323DFD0098CB2C /* pairPickerController.swift in Sources */,
+				016F56AB202E1301007A0ABD /* SecondCustomCell.swift in Sources */,
 				018C67671FE03D8400A047F3 /* DetailViewController.swift in Sources */,
+				017EFA46203259590017540F /* priceBoughtCell.swift in Sources */,
+				01F9350920323DE30098CB2C /* pairPickerCell.swift in Sources */,
+				016F56A9202E12F2007A0ABD /* FirstCustomCell.swift in Sources */,
+				01C0A2582034CF9A00C8C0FC /* transactionCustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

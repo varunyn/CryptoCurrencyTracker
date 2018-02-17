@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class FetchedData{
     var name: String
@@ -33,4 +34,25 @@ class FetchedData{
         self.vol24h = vol24h
         self.symbol = symbol
     }
+}
+
+class Coin{
+    var name: String?
+    var totalInvestment: Double?
+    var quantity: Int?
+    
+    init(name: String?,totalInvestment: Double?,quantity: Int?){
+        self.name = name
+        self.totalInvestment = totalInvestment
+        self.quantity = quantity
+    }
+}
+
+class Item: Object {
+    @objc dynamic var name : String = ""
+    @objc dynamic var Price: Double = 0
+}
+
+class Coine: Object {
+
 }

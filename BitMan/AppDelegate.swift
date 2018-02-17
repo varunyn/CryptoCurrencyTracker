@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import Armchair
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
@@ -27,8 +29,16 @@ GIDSignIn.sharedInstance().handle(url,sourceApplication:options[UIApplicationOpe
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        Armchair.appID("1346988061")
+        
+        Armchair.appName("CryptoTrackr")
+        
+        let realm = try! Realm()
+        print(realm.configuration.fileURL?.path as Any)
+        
         Thread.sleep(forTimeInterval: 1.0)
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

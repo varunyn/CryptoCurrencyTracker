@@ -18,6 +18,9 @@ class CustomAllPageCell: UITableViewCell {
     
     @IBOutlet weak var priceUS: UILabel!
  
+    @IBOutlet weak var coinImage: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
