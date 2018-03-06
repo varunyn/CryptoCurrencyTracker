@@ -1,13 +1,9 @@
 # CryptoCurrencyTracker
 App to track live price of Crypto Currencies with custom user profiles. This app uses coinmarketcap API. 
 
-##### Login page
+##### Walk through
 
-<a href="https://imgflip.com/i/20wb77"><img src="https://i.imgflip.com/20wb77.jpg" title="made at imgflip.com"/></a>
-
-##### This is the main page.
-
-<a href="https://imgflip.com/gif/20waol"><img src="https://i.imgflip.com/20waol.gif" title="made at imgflip.com"/></a>
+<a href="https://media.giphy.com/media/Bo7MvjhgRugANpsEPp/giphy.gif"><img src="https://media.giphy.com/media/Bo7MvjhgRugANpsEPp/giphy.gif" title="Walk Through"/></a>
 
  ## Built with
 
@@ -19,3 +15,5 @@ App to track live price of Crypto Currencies with custom user profiles. This app
     
 3. [NotificationBannerSwift](https://cocoapods.org/pods/NotificationBannerSwift) :
     Used to show in app notification.
+
+[App store link](https://itunes.apple.com/us/app/cryptotrackr/id1346988061?ls=1&mt=8)
